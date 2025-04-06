@@ -1,0 +1,9 @@
+streamlit
+pandas
+requests
+PyMuPDF
+matplotlib
+scikit-learn
+email-validator
+googlesearch-python
+sqlite3 
