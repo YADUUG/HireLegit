@@ -147,7 +147,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Custom header
-st.markdown('<div class="main-header">🤖 Multi-Agent Resume Shortlisting Dashboard</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-header">🤖 HireLegit | Multi-Agent Resume Shortlisting Dashboard</div>', unsafe_allow_html=True)
 
 # ---------- DATABASE ---------- #
 _thread_local = threading.local()
@@ -1507,7 +1507,7 @@ def main():
         """)
         st.markdown('</div>', unsafe_allow_html=True)
         
-        # Sample data option
+        # Sample data OPTIONAL 
         st.markdown('<div class="card">', unsafe_allow_html=True)
         st.markdown("### 🧪 Try with Sample Data")
         if st.button("Load Sample Data"):
