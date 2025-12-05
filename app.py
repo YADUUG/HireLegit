@@ -159,6 +159,10 @@ def get_database_connection():
         _thread_local.conn = sqlite3.connect(DB_FILE)
         cursor = _thread_local.conn.cursor()
 
+        cursor.execute(
+            "DROP TABLE IF EXISTS candidates"
+        )
+
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS candidates (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -251,7 +255,7 @@ YaduuG@gmail.com"""
 
 # ---------- OLLAMA CALL WITH CACHING ---------- #
 @st.cache_data(ttl=3600)  # Cache for 1 hour
-def call_ollama(prompt: str, model: str = "gemma3") -> str:
+def call_ollama(prompt: str, model: str = "gemma:2b") -> str:
     """Call Ollama API with caching"""
     url = "http://localhost:11434/api/generate"
     headers = {"Content-Type": "application/json"}
@@ -957,7 +961,7 @@ def setup_sidebar():
     # Model selection
     model = st.sidebar.selectbox(
         "Select AI Model",
-        ["gemma3", "llama3", "mistral"],
+        ["gemma:2b", "llama3", "mistral"],
         index=0,
         help="Choose the AI model to use for resume analysis"
     )
